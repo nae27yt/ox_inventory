@@ -1,11 +1,15 @@
-$mainColor: #22232c;
-$textColor: #c1c2c5;
+$mainColor: #150c2f;
+$textColor: #c4f0ff;
 $mainFont: Roboto;
 
-$secondaryColor: rgba(12, 12, 12, 0.4);
-$secondaryColorHighlight: #33343f;
-$secondaryColorLight: rgba(0, 0, 0, 0.5);
-$secondaryColorDark: rgba(12, 12, 12, 0.8);
+$accentPurple: #a96eff;
+$accentCyan: #56f0ff;
+$glowGradient: linear-gradient(135deg, $accentPurple, $accentCyan);
+
+$secondaryColor: rgba(46, 17, 87, 0.65);
+$secondaryColorHighlight: #3b2c8d;
+$secondaryColorLight: rgba(39, 14, 75, 0.55);
+$secondaryColorDark: rgba(18, 8, 42, 0.9);
 
 $gridCols: 5;
 $gridRows: 5;
@@ -20,8 +24,10 @@ body {
     'Helvetica Neue', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  height: 100vh;
-  background: none !important;
+  min-height: 100vh;
+  background: radial-gradient(circle at top left, rgba(86, 240, 255, 0.14), transparent 24%),
+              radial-gradient(circle at bottom right, rgba(169, 110, 255, 0.18), transparent 20%),
+              #0f0820;
   overflow: hidden !important;
   user-select: none;
 }
@@ -55,15 +61,18 @@ input[type='number']::-webkit-outer-spin-button {
   height: 100%;
   width: 100%;
   color: white;
+  background: linear-gradient(180deg, rgba(21, 12, 47, 0.9), rgba(12, 4, 34, 0.93));
+  box-shadow: inset 0 0 120px rgba(86, 240, 255, 0.15), inset 0 0 80px rgba(169, 110, 255, 0.14);
 }
 
 .context-menu-list {
   min-width: 200px;
-  background-color: $mainColor;
+  background: $mainColor;
+  background-image: linear-gradient(135deg, rgba(169, 110, 255, 0.15), rgba(86, 240, 255, 0.12));
   color: $textColor;
   padding: 4px;
-  border-color: rgba(0, 0, 0, 0.2);
-  border-style: inset;
+  border-color: rgba(86, 240, 255, 0.2);
+  border-style: solid;
   border-width: 1px;
   border-radius: 4px;
   outline: none;
@@ -239,9 +248,10 @@ button:active {
   align-items: center;
   fill: white;
   border-radius: 5% !important;
-  background-color: $secondaryColor !important;
+  background: $glowGradient !important;
+  box-shadow: 0 0 18px rgba(86, 240, 255, 0.35), 0 0 28px rgba(169, 110, 255, 0.25);
   &:hover {
-    background-color: $secondaryColorDark !important;
+    background: linear-gradient(135deg, rgba(169, 110, 255, 0.95), rgba(86, 240, 255, 0.88)) !important;
     cursor: pointer;
   }
 }
@@ -282,7 +292,7 @@ button:active {
 
 // inventory slots
 .inventory-slot {
-  background-color: $secondaryColor;
+  background: linear-gradient(145deg, rgba(169, 110, 255, 0.18), rgba(86, 240, 255, 0.18));
   background-repeat: no-repeat;
   background-position: center;
   border-radius: 2.5%;
@@ -290,13 +300,13 @@ button:active {
   position: relative;
   background-size: 7vh;
   color: $textColor;
-  border-color: rgba(0, 0, 0, 0.2);
-  border-style: inset;
-  border-width: 1px;
+  border: 1px solid rgba(86, 240, 255, 0.25);
+  box-shadow: inset 0 0 25px rgba(86, 240, 255, 0.08), inset 0 0 18px rgba(169, 110, 255, 0.08),
+              0 0 18px rgba(86, 240, 255, 0.08);
 }
 
 .inventory-slot-label-box {
-  background-color: $mainColor;
+  background: linear-gradient(180deg, rgba(21, 12, 47, 0.95), rgba(12, 4, 34, 0.95));
   color: $textColor;
   text-align: center;
   border-bottom-left-radius: 0.25vh;
